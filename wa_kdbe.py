@@ -249,7 +249,7 @@ def install_legacy(sdk_version):
     custom_print("Installing legacy WhatsApp V2.11.431, hold tight now.")
     if sdk_version >= 17:
         install_legacy_out = subprocess.getoutput(
-            f"{adb} install -r -d -g {helpers}LegacyWhatsApp.apk"
+            f"{adb} install --bypass-low-target-sdk-block -r -d -g {helpers}LegacyWhatsApp.apk"
         )
         if "Success" in install_legacy_out:
             custom_print("Installation Complete.")
@@ -262,7 +262,7 @@ def install_legacy(sdk_version):
 
     else:
         install_legacy_out = subprocess.getoutput(
-            f"{adb} install -r -g {helpers}LegacyWhatsApp.apk"
+            f"{adb} install --bypass-low-target-sdk-block -r -g {helpers}LegacyWhatsApp.apk"
         )
         if "Success" in install_legacy_out:
             custom_print("Installation Complete.")
